@@ -1,0 +1,30 @@
+<table>
+	<thead>
+		<tr>
+			<th style="text-decoration:underline"> Species </th>
+			<th> Genus </th>
+			<th> Common Name </th>
+			<th> Region </th>
+			<th> Bark </th>
+			<th> Classification </th>
+			<th> Height </th>
+			<th> Diameter </th>
+			<th> Life Expectancy </th>
+		</tr>
+	</thead>
+	<tbody>
+		{{#each data}}
+		<tr>
+			<td> {{this.species}} </td>
+			<td> {{this.genus}} </td>
+			<td> {{this.common_name}} </td>
+			<td> {{this.region}} </td>
+			<td> {{this.bark}} </td>
+			<td> {{this.classification}} </td>
+			<td> {{this.height}} </td>
+			<td> {{this.diameter}} </td>
+			<td> {{this.life}} </td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table

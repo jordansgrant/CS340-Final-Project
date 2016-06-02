@@ -1,0 +1,276 @@
+<!doctype html>
+<head>
+	<title> Tree DataBase Final Project </title>
+	<link  rel="stylesheet" type="text/css" href="TreeDB.css">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <form>
+      <fieldset style="width:60%; padding-left:10px; padding-bottom: 20px;">
+        <legend> Insert Queries </legend>
+        <div class="row">
+          <div class="left">
+			<form>
+              <fieldset>
+                <legend> Insert Tree </legend>
+                <label for="Tree Species" style="text-decoration:underline"> Species: </label>
+                <input id="tree_species" type="text" name="Tree Species" style="margin-left:108px" />
+                <br/>
+				<label for="Tree Genus"> Genus: </label>
+                <input id="tree_genus" type="text" name="Tree Genus" style="margin-left:116px" />
+                <br/>
+				<label for="Tree Common"> Common Name: </label>
+                <input id="tree_common" type="text" name="Tree Common" style="margin-left:54px" />
+                <br/>
+                <label for="Tree Region"> Region: </label>
+                <input id="tree_region" type="text" name="Tree Region" style="margin-left:109px" />
+                <br/>
+                <label for="Tree Bark"> Bark: </label>
+                <input id="tree_bark" type="text" name="Tree Bark" style="margin-left:125px" />
+                <br/>
+                <label for="Tree Height"> Height (ft): </label>
+                <input id="tree_height" type="text" name="Tree Height" style="margin-left:88px" />
+                <br/>
+                <label for="Tree Diameter"> Diameter (ft): </label>
+                <input id="tree_diameter" type="text" name="Tree Diameter" style="margin-left:72px" />
+                <br/>
+                <label for="Tree Life"> Life Expectancy (years): </label>
+                <input id="tree_life" type="text" name="Tree Life" style="margin-left:2px" />
+                <br/>
+				<label for="Tree Class"> Classification: </label>
+                <input id="tree_class" class="rounded" type="checkbox" name="Tree Class" style="margin-left:66px" />
+                <br/>
+				<p> Checked = Angiosperm, Unchecked = Gymnosperm </p>
+                <input id="insert_tree" type="button" name="Insert Tree" value="Insert!" />
+              </fieldset>
+            </form>
+          </div>
+          <div class="right">
+			<form>
+              <fieldset style="padding-bottom:224px">
+                <legend> Insert Leaf </legend>
+                <label for="Leaf Tree" style="text-decoration:underline"> Tree Species: </label>
+                <input id="leaf_t_species" type="text" name="Leaf Tree" style="margin-left:5px" />
+                <br/>
+                <label for="Leaf Height"> Height (in): </label>
+                <input id="leaf_height" type="text" name="Leaf Height" style="margin-left:15px" />
+                <br/>
+                <label for="Leaf Type"> Type: </label>
+                <input id="leaf_type" type="text" name="Leaf Type" style="margin-left:54px" />
+                <br/>
+                <label for="Leaf Cuticle"> Cuticle: </label>
+                <input id="leaf_cuticle" type="text" name="Leaf Cuticle" style="margin-left:39px" />
+                <br/>
+                <input id="insert_leaf" type="button" name="Insert Leaf" value="Insert!" />
+              </fieldset>
+            </form>
+          </div>
+        </div>
+        <div class="row">
+          <div class="left">
+			<form>
+              <fieldset style="padding-bottom:55px">
+                <legend> Insert Climate </legend>
+                <label for="Climate Name" style="text-decoration:underline"> Name: </label>
+                <input id="climate_name" type="text" name="Climate Name" style="margin-left:122px" />
+                <br/>
+                <label for="Climate Precipitation"> Precipitation (inch/year): </label>
+                <input id="climate_precipitation" type="text" name="Climate Precipitation" style="margin-left:5px" />
+                <br/>
+                <label for="Climate Elevation"> Elevation (ft): </label>
+                <input id="climate_elevation" type="text" name="Climate Elevation" style="margin-left:74px" />
+                <br/>
+                <input id="insert_climate" type="button" name="Insert Climate" value="Insert!" />
+              </fieldset>
+            </form>
+          </div>
+          <div class="right">
+			<form>
+              <fieldset style="padding-bottom:20px">
+                <legend> Insert Soil </legend>
+                <label for="Soil Name" style="text-decoration:underline"> Name: </label>
+                <input id="soil_name" type="text" name="Soil Name" style="margin-left:21px" />
+                <br/>
+                <label for="Clay"> Clay %: </label>
+                <input id="soil_clay" type="text" name="Clay" style="margin-left:13px" />
+                <br/>
+                <label for="Soil Sand"> Sand %: </label>
+                <input id="soil_sand" type="text" name="Soil Sand" style="margin-left:10px" />
+                <br/>
+                <label for="Soil Silt"> Silt %: </label>
+                <input id="soil_silt" type="text" name="Soil Silt" style="margin-left:20px" />
+                <br/>
+                <input id="insert_soil" type="button" name="Insert Soil" value="Insert!" />
+              </fieldset>
+            </form>
+          </div>
+        </div>
+		<div class="row">
+          <div class="left">
+			<form>
+              <fieldset style="padding-bottom:20px">
+                <legend> Insert Fruit </legend>
+                <label for="Fruit Tree" style="text-decoration:underline"> Tree Species: </label>
+                <input id="fruit_t_species" type="text" name="Fruit Tree" style="margin-left:5px" />
+                <br/>
+                <label for="Fruit Name"> Name: </label>
+                <input id="fruit_name" type="text" name="Fruit Name" style="margin-left:48px" />
+                <br/>
+				<label for="Fruit Seed"> Seed: </label>
+                <input id="fruit_seed" type="text" name="Fruit Seed" style="margin-left:54px" />
+                <br/>
+                <label for="Fruit Skin"> Skin: </label>
+                <input id="fruit_skin" type="text" name="Fruit Skin" style="margin-left:56px" />
+                <br/>
+				<label for="Fruit Bud"> Bud: </label>
+                <input id="fruit_bud" type="text" name="Fruit Bud" style="margin-left:58px" />
+                <br/>
+                <input id="insert_fruit" type="button" name="Insert Climate" value="Insert!" />
+              </fieldset>
+            </form>
+          </div>
+          <div class="right">
+			<form>
+              <fieldset style="padding-bottom:121px">
+                <legend> Insert Tree-Soil </legend>
+                <label for="Tree Species" style="text-decoration:underline"> Tree Species: </label>
+                <input id="ts_t_species" type="text" name="Tree Species" style="margin-left:5px" />
+                <br/>
+                <label for="Soil Name" style="text-decoration:underline"> Soil Name: </label>
+                <input id="ts_s_name" type="text" name="Soil Name" style="margin-left:20px" />
+                <br/>
+                <input id="insert_ts" type="button" name="Insert TS" value="Insert!" />
+              </fieldset>
+            </form>
+          </div>
+        </div>
+		<div class="row">
+          <div class="left">
+			<form>
+              <fieldset style="padding-bottom:10px">
+                <legend> Insert Tree-Climate </legend>
+                <label for="Tree Species" style="text-decoration:underline"> Tree Species: </label>
+                <input id="tc_t_species" type="text" name="Tree Species" style="margin-left:16px" />
+                <br/>
+                <label for="Climate Name" style="text-decoration:underline"> Climate Name: </label>
+                <input id="tc_c_name" type="text" name="Climate Name" style="margin-left:5px" />
+                <br/>
+                <input id="insert_tc" type="button" name="Insert TC" value="Insert!" />
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <div class="container">
+    <form>
+      <fieldset style="width:90%; padding-left:10px; padding-bottom: 20px; width:40%">
+        <legend> Select Queries </legend>
+        <div class="row">
+          <div class="left">
+              <fieldset>
+                <legend> Select Tree</legend>
+                <input id="select_tree" type="button" name="Insert Tree" value="Go!" />
+              </fieldset>
+            </form>
+          </div>
+          <div class="right">
+              <fieldset>
+				<legend> Select Fruit</legend>
+                <input id="select_fruit" type="button" name="Select" value="Go!" />
+              </fieldset>
+            </form>
+          </div>
+        </div>
+		<div class="row">
+          <div class="left">
+              <fieldset>
+                <legend> Select Leaf</legend>
+                <input id="select_leaf" type="button" name="Insert Tree" value="Go!" />
+              </fieldset>
+            </form>
+          </div>
+          <div class="right">
+              <fieldset>
+				<legend> Select Climate </legend>
+                <input id="select_climate" type="button" name="Select" value="Go!" />
+              </fieldset>
+            </form>
+          </div>
+        </div>
+		<div class="row">
+          <div class="left">
+              <fieldset>
+                <legend> Select Soil</legend>
+                <input id="select_soil" type="button" name="Insert Tree" value="Go!" />
+              </fieldset>
+            </form>
+          </div>
+          <div class="right">
+              <fieldset>
+				<legend> Select Tree-Soil </legend>
+                <input id="select_ts" type="button" name="Select" value="Go!" />
+              </fieldset>
+            </form>
+          </div>
+        </div>
+		<div class="row">
+          <div class="left">
+              <fieldset>
+                <legend> Select Tree-Climate</legend>
+                <input id="select_tc" type="button" name="Insert Tree" value="Go!" />
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <div class="container">
+    <form>
+      <fieldset style="width:90%; padding-left:10px; padding-bottom: 20px; width:40%">
+        <legend> Advanced Select Queries </legend>
+        <div class="row">
+          <div class="left">
+              <fieldset>
+                <legend> Get All Trees Above Elevation</legend>
+				<label for="Elevation"> Elevation: </label>
+                <input id="elevation" type="text" name="Elevation" style="margin-left:5px" /> <br/>
+                <input id="select_elevation" type="button" name="Elevation" value="Go!" />
+              </fieldset>
+            </form>
+          </div>
+          <div class="right">
+              <fieldset>
+				<legend> Count of All Trees in Each Climate</legend>
+                <input id="count_climate" type="button" name="Select" value="Go!" />
+              </fieldset>
+            </form>
+          </div>
+        </div>
+		<div class="row">
+          <div class="left">
+              <fieldset>
+                <legend> Count of All Trees in Each Soil</legend>
+                <input id="count_soil" type="button" name="Insert Tree" value="Go!" />
+              </fieldset>
+            </form>
+          </div>
+ 
+        </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <div style="margin-top:50px; clear:both;">
+    <hr>
+    <footer>
+      <h4> Project by Jordan Grant and Nick Mabe </h4>
+    </footer>
+  </div>
+  <script type="text/javascript" src="TreeDB.js"></script>
+</body>
+
+

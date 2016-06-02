@@ -1,0 +1,20 @@
+<table>
+	<thead>
+		<tr>
+			<th style="text-decoration:underline"> Tree Species </th>
+			<th> Height </th>
+			<th> Type </th>
+			<th> Cuticle </th>
+		</tr>
+	</thead>
+	<tbody>
+		{{#each data}}
+		<tr>
+			<td> {{this.t_species}} </td>
+			<td> {{this.height}} </td>
+			<td> {{this.type}} </td>
+			<td> {{this.cuticle}} </td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table

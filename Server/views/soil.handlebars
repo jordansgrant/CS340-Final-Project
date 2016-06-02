@@ -1,0 +1,20 @@
+<table>
+	<thead>
+		<tr>
+			<th style="text-decoration:underline"> Name </th>
+			<th> Clay (%) </th>
+			<th> Sand (%) </th>
+			<th> Silt (%) </th>
+		</tr>
+	</thead>
+	<tbody>
+		{{#each data}}
+		<tr>
+			<td> {{this.name}} </td>
+			<td> {{this.clay}} </td>
+			<td> {{this.sand}} </td>
+			<td> {{this.silt}} </td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table
