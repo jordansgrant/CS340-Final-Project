@@ -9,9 +9,9 @@ var mysql = require('mysql');
 
 var pool = mysql.createPool({
 	host: 'localhost',
-	user: 'root',
-	password: 'default',
-	database: 'nodedb'
+	user: '[User]',
+	password: '[Password]',
+	database: '[Database name]'
 });
 
 app.use(express.static('public'));
