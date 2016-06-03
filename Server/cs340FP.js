@@ -26,20 +26,22 @@ app.set('port', 3005);
 /************************* SELECTION Queries *****************************/
 
 /******** SELECT ALL Queries ***************/
-
-app.get('/tree', function (req, res) {
+//all queries follow approximately the same format that will be explained here.
+app.get('/tree', function (req, res) { //client side request routing
 	var context = {};
+	//query to sql pool requesting action based on query string
   pool.query('SELECT * FROM tree;', function(err, rows, fields){
-    if(err){
+    if(err){//error handling procedure
 	  console.log(err);
       next(err);
       return;
     }
+	//handling of returned in formation from sql query
 	context.data = rows;
 	context.status = 'OK';
 	console.log(rows);
-	res.render('tree', context);
-	return;
+	res.render('tree', context);//html returned for client side update based on
+	return;							// the request.
   });
 });
 
@@ -53,7 +55,7 @@ app.get('/leaf', function (req, res) {
     }
 	context.data = rows;
 	context.status = 'OK';
-	
+
 	res.render('leaf', context);
 	return;
   });
@@ -69,7 +71,7 @@ app.get('/fruit', function (req, res) {
     }
 	context.data = rows;
 	context.status = 'OK';
-	
+
 	res.render('fruit', context);
 	return;
   });
@@ -85,7 +87,7 @@ app.get('/climate', function (req, res) {
     }
 	context.data = rows;
 	context.status = 'OK';
-	
+
 	res.render('climate', context);
 	return;
   });
@@ -101,7 +103,7 @@ app.get('/soil', function (req, res) {
     }
 	context.data = rows;
 	context.status = 'OK';
-	
+
 	res.render('soil', context);
 	return;
   });
@@ -117,7 +119,7 @@ app.get('/tree-climate', function (req, res) {
     }
 	context.data = rows;
 	context.status = 'OK';
-	
+
 	res.render('tree_climate', context);
 	return;
   });
@@ -133,7 +135,7 @@ app.get('/tree-soil', function (req, res) {
     }
 	context.data = rows;
 	context.status = 'OK';
-	
+
 	res.render('tree_soil', context);
 	return;
   });
@@ -155,7 +157,7 @@ app.get('/tree-elevation', function (req, res) {
     }
 	context.data = rows;
 	context.status = 'OK';
-	
+
 	res.render('elevation', context);
 	return;
   });
@@ -176,12 +178,12 @@ app.get('/climate-count', function (req, res) {
     }
 	context.data = rows;
 	context.status = 'OK';
-	
+
 	res.render('climate_count', context);
 	return;
 	});
   });
-  
+
   app.get('/soil-count', function (req, res) {
 	var context = {};
   pool.query('SELECT s.name, COUNT(t.species) as count FROM soil s ' +
@@ -197,7 +199,7 @@ app.get('/climate-count', function (req, res) {
     }
 	context.data = rows;
 	context.status = 'OK';
-	
+
 	res.render('soil_count', context);
 	return;
   });
@@ -208,12 +210,12 @@ app.get('/climate-count', function (req, res) {
 
 /*************** Tree *****************/
 app.get('/insert-tree', function (req, res, next) {
-	
+
   var context = {};
   pool.query('INSERT INTO tree (`species`, `genus`, `common_name`, `region`, `bark`, ' +
 								'`classification`, `height`, `diameter`, `life`)' +
-			  'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);', 
-[req.query.species || null, req.query.genus || null, req.query.common_name || null, 
+			  'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);',
+[req.query.species || null, req.query.genus || null, req.query.common_name || null,
 req.query.region || null, req.query.bark || null, (req.query.classification == 'true' ? 1 : 0),
 req.query.height || null, req.query.diameter || null, req.query.life || null],
 	function(err, result){
@@ -234,9 +236,9 @@ req.query.height || null, req.query.diameter || null, req.query.life || null],
 /*************** climate *****************/
 
 app.get('/insert-climate', function (req, res, next) {
-	
+
   var context = {};
-  pool.query('INSERT INTO climate (`name`, `precipitation`, `elevation`) VALUES (?, ?, ?);', 
+  pool.query('INSERT INTO climate (`name`, `precipitation`, `elevation`) VALUES (?, ?, ?);',
 [req.query.name || null, req.query.precipitation || null, req.query.elevation || null],
 	function(err, result){
     if(err){
@@ -255,9 +257,9 @@ app.get('/insert-climate', function (req, res, next) {
 
 /*************** Soil *****************/
 app.get('/insert-soil', function (req, res, next) {
-	
+
   var context = {};
-  pool.query('INSERT INTO soil (`name`, `clay`, `sand`, `silt`) VALUES (?, ?, ?, ?);', 
+  pool.query('INSERT INTO soil (`name`, `clay`, `sand`, `silt`) VALUES (?, ?, ?, ?);',
 [req.query.name || null, req.query.clay || null, req.query.sand || null, req.query.silt || null],
 	function(err, result){
     if(err){
@@ -276,9 +278,9 @@ app.get('/insert-soil', function (req, res, next) {
 
 /*************** Leaf *****************/
 app.get('/insert-leaf', function (req, res, next) {
-	
+
   var context = {};
-  pool.query('INSERT INTO leaf (`t_species`, `height`, `type`, `cuticle`) VALUES (?, ?, ?, ?);', 
+  pool.query('INSERT INTO leaf (`t_species`, `height`, `type`, `cuticle`) VALUES (?, ?, ?, ?);',
 [req.query.t_species || null, req.query.height || null, req.query.type || null, req.query.cuticle || null],
 	function(err, result){
     if(err){
@@ -296,9 +298,9 @@ app.get('/insert-leaf', function (req, res, next) {
 });
 /*************** fruit *****************/
 app.get('/insert-fruit', function (req, res, next) {
-	
+
   var context = {};
-  pool.query('INSERT INTO fruit (`t_species`, `name`, `seed`, `skin`, `bud`) VALUES (?, ?, ?, ?, ?);', 
+  pool.query('INSERT INTO fruit (`t_species`, `name`, `seed`, `skin`, `bud`) VALUES (?, ?, ?, ?, ?);',
 [req.query.t_species || null, req.query.name || null, req.query.seed || null, req.query.skin || null, req.query.bud || null],
 	function(err, result){
     if(err){
@@ -317,12 +319,12 @@ app.get('/insert-fruit', function (req, res, next) {
 
 /*************** tree_soil *****************/
 app.get('/insert-tree-soil', function (req, res, next) {
-	
+
   var context = {};
   pool.query('INSERT INTO tree_soil (`t_species`, `s_name`) VALUES ( ' +
 			'(SELECT t.species FROM tree t WHERE t.species = ?),' +
 			'(SELECT s.name FROM soil s WHERE s.name = ?)' +
-			');', 
+			');',
 [req.query.t_species || null, req.query.s_name || null],
 	function(err, result){
     if(err){
@@ -341,12 +343,12 @@ app.get('/insert-tree-soil', function (req, res, next) {
 
 /*************** tree_climate *****************/
 app.get('/insert-tree-climate', function (req, res, next) {
-	
+
   var context = {};
   pool.query('INSERT INTO tree_climate (`t_species`, `c_name`) VALUES ( ' +
 			'(SELECT t.species FROM tree t WHERE t.species = ?),' +
 			'(SELECT c.name FROM climate c WHERE c.name = ?)' +
-			');', 
+			');',
 [req.query.t_species || null, req.query.c_name || null],
 	function(err, result){
     if(err){
@@ -370,7 +372,7 @@ app.use(function(req, res) {
 
 app.use(function(err, req, res, next) {
 	context = {};
-	
+
 	context.results = 'Encountered an Error';
 	context.Status = "Error";
 	context.info = err;
