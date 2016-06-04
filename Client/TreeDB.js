@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 			} else {
 			if (JSON.parse(res).info.code === 'ER_BAD_NULL_ERROR')
-				alert("t_species cannot be null!");
+				alert("name cannot be null!");
 			else
 				console.log(JSON.parse(res).results);
 				alert(JSON.parse(res).results);
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 			} else {
 			if (JSON.parse(res).info.code === 'ER_BAD_NULL_ERROR')
-				alert("t_species cannot be null!");
+				alert("name cannot be null!");
 			else
 				console.log(JSON.parse(res).results);
 				alert(JSON.parse(res).results);
